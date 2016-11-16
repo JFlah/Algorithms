@@ -1,0 +1,38 @@
+
+
+    static String mergeStrings(String a, String b) {
+        StringBuilder mergedString = new StringBuilder();
+
+        char[] s1Array = a.toCharArray();
+        char[] s2Array = b.toCharArray();
+
+        int s1Length = s1Array.length;
+        int s2Length = s2Array.length;
+        int minLength = Math.min(s1Length, s2Length);
+
+
+        int s1Index = 0;
+        int s2Index = 0;
+
+        for (int i = 0; i < minLength; i++) {
+            mergedString.append(s1Array[i]);
+            mergedString.append(s2Array[i]);
+            s1Index++;
+            s2Index++;
+        }
+
+        if (s1Index < s1Array.length) {
+            for (int i = s1Index; i < s1Length; i++) {
+                mergedString.append(s1Array[i]);
+            }
+        }
+        if (s2Index < s2Array.length) {
+            for (int i = s2Index; i < s2Length; i++) {
+                mergedString.append(s2Array[i]);
+            }
+        }
+
+        System.out.println(mergedString.toString());
+        return mergedString.toString();
+    }
+

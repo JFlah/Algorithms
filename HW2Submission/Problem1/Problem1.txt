@@ -1,0 +1,24 @@
+# Complete the function below.
+def  Union(a, b, size, G):
+    length = len(G)
+    
+    aParent = parent(a, G)
+    bParent = parent(b, G)
+    
+    if (aParent != bParent):
+        G[aParent] = G[bParent]
+        if (length > size):
+            G[-1] = -1
+        else:
+            G.append(-1)
+    else:
+        if (length > size):
+            G[-1] = 1
+        else:
+            G.append(1)
+    return G
+
+def parent(a, G):
+    while (a != G[a]):
+        a = G[a]
+    return a
